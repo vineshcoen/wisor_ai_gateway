@@ -1,0 +1,853 @@
+# Project Case Study: Wisor AI Clone - Intelligent Freight Quotation Platform
+
+## 1. Problem Statement
+
+Freight forwarding companies receive dozens or hundreds of shipment quote requests (RFQs) every day through email.
+
+A typical email might look like:
+
+```text
+Hi Team,
+
+Please provide rates for shipping 2 x 40FT containers from Ahmedabad, India to Hamburg, Germany.
+
+Cargo: Textile
+Weight: 20 Tons
+Ready Date: Next Week
+
+Regards,
+ABC Exports
+```
+
+Currently, an operations executive must:
+
+1. Read the email manually.
+2. Identify shipment details.
+3. Verify information is complete.
+4. Search internal rate cards.
+5. Calculate charges.
+6. Prepare quotation.
+7. Send quote back to customer.
+
+This process can take anywhere from 10 to 30 minutes per RFQ.
+
+When a company receives hundreds of RFQs daily, the operational cost becomes significant.
+
+---
+
+## Why Wisor Exists
+
+Wisor's goal is not to "chat with users."
+
+Its goal is:
+
+> Convert unstructured freight inquiry emails into accurate quotations automatically.
+
+The real value comes from:
+
+* Faster quote generation
+* Reduced human effort
+* Consistent pricing
+* Lower operational costs
+* Faster response time to customers
+
+---
+
+# Our Project Vision
+
+We are building:
+
+## AI Freight Revenue Platform
+
+An intelligent platform that:
+
+### Input
+
+Customer RFQ Email
+
+↓
+
+### AI Processing
+
+Extract shipment details
+
+↓
+
+### Validation Engine
+
+Verify completeness
+
+↓
+
+### Pricing Engine
+
+Calculate freight cost
+
+↓
+
+### Explainable AI
+
+Explain how quote was generated
+
+↓
+
+### Output
+
+Professional quotation
+
+---
+
+# Key Differentiator
+
+Most AI demos stop here:
+
+```text
+Email
+ ↓
+JSON
+ ↓
+Quote
+```
+
+Our system adds:
+
+## Explainable Freight Pricing
+
+Every generated quote includes:
+
+```text
+Base Freight: $2200
+
+Reason:
+India → Germany route
+40FT container rate card
+
+Documentation Fee: $150
+
+Reason:
+Mandatory customs processing
+
+Fuel Surcharge: $80
+
+Reason:
+Current fuel adjustment policy
+
+Total Quote: $2430
+```
+
+The customer and operations team can understand:
+
+### WHY
+
+the quote was generated.
+
+This increases trust significantly.
+
+---
+
+# System Workflow
+
+```text
+Customer Email
+
+      ↓
+
+AI Extraction
+
+      ↓
+
+Data Validation
+
+      ↓
+
+Missing Information Detection
+
+      ↓
+
+Pricing Engine
+
+      ↓
+
+AI Reasoning Layer
+
+      ↓
+
+Quotation Generation
+
+      ↓
+
+Quote History Storage
+```
+
+---
+
+# SCREEN DESIGN
+
+---
+
+# Screen 1: Dashboard
+
+## Purpose
+
+Executive overview of business activity.
+
+This screen answers:
+
+```text
+How many RFQs arrived today?
+How many quotes were generated?
+How many require manual review?
+```
+
+---
+
+## Layout
+
+### Top Navbar
+
+```text
+Logo
+
+Dashboard
+RFQ Inbox
+Quotes
+Pricing Admin
+Settings
+```
+
+---
+
+### KPI Cards
+
+```text
++----------------+
+| RFQs Today 25  |
++----------------+
+
++----------------+
+| Quotes 18      |
++----------------+
+
++----------------+
+| Pending 7      |
++----------------+
+
++----------------+
+| Revenue $12K   |
++----------------+
+```
+
+---
+
+### Recent RFQ Table
+
+Columns:
+
+```text
+RFQ ID
+
+Customer
+
+Origin
+
+Destination
+
+Status
+
+Created Time
+```
+
+---
+
+### Charts
+
+Optional if time allows:
+
+```text
+RFQs per day
+
+Quotes generated
+```
+
+---
+
+# Screen 2: RFQ Inbox
+
+## Purpose
+
+View incoming customer requests.
+
+Acts similar to Gmail.
+
+---
+
+## Layout
+
+### Left Panel
+
+RFQ List
+
+```text
+RFQ-101
+
+ABC Exports
+
+Ahmedabad → Hamburg
+
+Pending
+```
+
+---
+
+### Right Panel
+
+Selected Email
+
+```text
+Customer Email
+
+Need shipping rates...
+
+...
+```
+
+---
+
+### Actions
+
+```text
+[Process RFQ]
+
+[Delete]
+
+[Mark Complete]
+```
+
+---
+
+# Screen 3: AI Extraction Review
+
+## Purpose
+
+Show AI-extracted shipment information.
+
+This is the most important screen.
+
+---
+
+## Layout
+
+### Original Email
+
+Left side
+
+```text
+Customer Email
+```
+
+---
+
+### Extracted Data
+
+Right side
+
+```text
+Origin
+
+Destination
+
+Cargo Type
+
+Container Type
+
+Weight
+
+Quantity
+
+Ready Date
+```
+
+---
+
+### Confidence Scores
+
+```text
+Origin
+98%
+
+Destination
+97%
+
+Weight
+81%
+```
+
+---
+
+### Validation Panel
+
+```text
+✓ Origin Found
+
+✓ Destination Found
+
+✓ Container Found
+
+⚠ Cargo Type Missing
+```
+
+---
+
+### Actions
+
+```text
+[Generate Quote]
+
+[Edit Data]
+```
+
+---
+
+# Screen 4: Quote Generation
+
+## Purpose
+
+Display freight calculation.
+
+---
+
+## Layout
+
+### Shipment Summary
+
+```text
+Origin:
+Ahmedabad
+
+Destination:
+Hamburg
+
+Container:
+40FT
+```
+
+---
+
+### Pricing Breakdown
+
+```text
+Base Freight
+2200
+
+Documentation
+150
+
+Fuel
+80
+
+Handling
+100
+```
+
+---
+
+### Total
+
+```text
+2530 USD
+```
+
+---
+
+### Actions
+
+```text
+[Generate PDF]
+
+[Send Quote]
+
+[Save]
+```
+
+---
+
+# Screen 5: AI Pricing Explanation
+
+## Purpose
+
+Explain WHY quote was generated.
+
+This is our differentiator.
+
+---
+
+## Layout
+
+### AI Reasoning Panel
+
+```text
+Pricing Decision Explanation
+
+Route:
+India → Germany
+
+Reason:
+Germany route belongs to EU Zone.
+
+Base Freight:
+2200 USD
+
+Reason:
+Rate Card #EU-40FT
+
+Documentation:
+150 USD
+
+Reason:
+Required export documentation.
+
+Fuel:
+80 USD
+
+Reason:
+Current fuel surcharge.
+```
+
+---
+
+### Confidence
+
+```text
+Quote Confidence:
+96%
+```
+
+---
+
+### Risk Flags
+
+```text
+No Missing Data
+
+No Validation Errors
+```
+
+or
+
+```text
+Weight not provided.
+
+Estimated using historical data.
+```
+
+---
+
+# Screen 6: Pricing Administration
+
+## Purpose
+
+Operations manager updates pricing.
+
+No code changes required.
+
+---
+
+## Layout
+
+### Rate Card Table
+
+```text
+Origin
+
+Destination
+
+Container Type
+
+Price
+```
+
+---
+
+### Example
+
+```text
+India
+
+Germany
+
+40FT
+
+2200
+```
+
+---
+
+### Actions
+
+```text
+Add Route
+
+Edit Route
+
+Delete Route
+```
+
+---
+
+### Surcharge Section
+
+```text
+Documentation
+
+Fuel
+
+Handling
+
+Port Fee
+```
+
+---
+
+# Screen 7: Quote History
+
+## Purpose
+
+Audit trail.
+
+---
+
+## Columns
+
+```text
+Quote ID
+
+Customer
+
+Route
+
+Amount
+
+Created By
+
+Date
+```
+
+---
+
+# COMPLETE TECH STACK
+
+## Frontend
+
+### Framework
+
+```text
+React
+```
+
+### Build Tool
+
+```text
+Vite
+```
+
+### UI Library
+
+```text
+Material UI (MUI)
+```
+
+Install:
+
+```bash
+npm install @mui/material
+npm install @emotion/react
+npm install @emotion/styled
+npm install axios
+npm install react-router-dom
+```
+
+---
+
+# Backend
+
+### Framework
+
+```text
+FastAPI
+```
+
+Install:
+
+```bash
+pip install fastapi
+pip install uvicorn
+pip install sqlalchemy
+pip install pymysql
+pip install python-dotenv
+pip install groq
+```
+
+---
+
+# Database
+
+### MySQL
+
+Since you're on Mac:
+
+Install using Homebrew:
+
+```bash
+brew install mysql
+```
+
+Start:
+
+```bash
+brew services start mysql
+```
+
+Login:
+
+```bash
+mysql -u root
+```
+
+Create DB:
+
+```sql
+CREATE DATABASE wisor_ai;
+```
+
+---
+
+# ORM
+
+```text
+SQLAlchemy
+```
+
+Tables:
+
+```text
+rfqs
+
+quotes
+
+rate_cards
+
+surcharges
+
+users
+```
+
+---
+
+# AI Model
+
+## Groq
+
+Free and fast.
+
+Recommended model:
+
+```text
+llama-3.3-70b-versatile
+```
+
+or
+
+```text
+llama-3.1-8b-instant
+```
+
+---
+
+# Environment Variables
+
+```env
+GROQ_API_KEY=xxxxx
+
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=wisor_ai
+DB_USER=root
+DB_PASSWORD=password
+```
+
+---
+
+# Backend API Design
+
+## RFQ Processing
+
+```http
+POST /api/rfq/process
+```
+
+Input:
+
+```json
+{
+  "email":"...."
+}
+```
+
+Output:
+
+```json
+{
+  "origin":"Ahmedabad",
+  "destination":"Hamburg"
+}
+```
+
+---
+
+## Generate Quote
+
+```http
+POST /api/quote/generate
+```
+
+---
+
+## Pricing Explanation
+
+```http
+POST /api/quote/explanation
+```
+
+---
+
+## Pricing CRUD
+
+```http
+GET    /api/rates
+
+POST   /api/rates
+
+PUT    /api/rates/{id}
+
+DELETE /api/rates/{id}
+```
+
+---
+
+# Why This Architecture Is Strong For The Interview
+
+This design demonstrates:
+
+* AI Extraction
+* Structured Output Generation
+* Validation Layer
+* Business Logic Layer
+* Explainable AI
+* Admin Management
+* Database Design
+* Production-like UI
+* FastAPI Backend Architecture
+
+Most candidates will build an LLM demo.
+
+This architecture looks like an actual SaaS product and gives you enough depth to discuss system design, AI workflows, database modeling, validation strategies, and future scalability during the interview.
