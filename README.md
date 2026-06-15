@@ -68,6 +68,88 @@ The system processes incoming freight inquiries, extracts structured shipment da
 
 ---
 
+## Database Setup
+
+### 1. Create Database Schema
+
+Open MySQL and create the database:
+
+```sql
+CREATE DATABASE wisor_ai;
+```
+
+---
+
+### 2. Select the Database
+
+```sql
+USE wisor_ai;
+```
+
+---
+
+### 3. Create Required Tables
+
+Run the schema creation scripts provided in the backend project.
+
+Example:
+
+```sql
+SOURCE schema.sql;
+```
+
+or execute the SQL scripts manually through MySQL Workbench.
+
+---
+
+### 4. Seed Freight Rate Data
+
+Insert sample freight rate records required by the pricing engine.
+
+```sql
+INSERT INTO freight_rates
+(origin, destination, container_type, base_rate, currency)
+VALUES
+('Ahmedabad, India', 'Hamburg, Germany', '40FT', 4400, 'USD'),
+('Ahmedabad, India', 'Rotterdam, Netherlands', '40FT', 4200, 'USD'),
+('Mumbai, India', 'Hamburg, Germany', '20FT', 3100, 'USD'),
+('Mumbai, India', 'Dubai, UAE', '20FT', 1200, 'USD'),
+('Mundra, India', 'Singapore', '40FT', 1800, 'USD'),
+('Chennai, India', 'Singapore', '40FT HC', 2200, 'USD'),
+('Delhi, India', 'New York, USA', 'AIR', 6500, 'USD');
+```
+
+---
+
+### 5. Seed Pricing Parameters
+
+```sql
+INSERT INTO pricing_rules
+(rule_name, rule_value)
+VALUES
+('documentation_fee', 300),
+('fuel_surcharge_percent', 4),
+('handling_fee', 200),
+('insurance_percent', 1.5);
+```
+
+---
+
+### Notes
+
+The quote generation engine relies on freight rate records being present in the database.
+
+Without seeded rates, quote generation and pricing explanation features will not return meaningful results.
+
+The sample rates above are sufficient to test:
+
+* RFQ Processing
+* Quote Generation
+* Pricing Breakdown
+* AI Pricing Explanation
+* Quote History
+* Dashboard Revenue Metrics
+
 ## System Architecture
 
 Customer Email
